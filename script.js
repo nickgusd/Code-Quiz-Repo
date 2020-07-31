@@ -1,6 +1,9 @@
+//assign score and timer
+var score = 0;
+var secondsLeft = 60;
 
 //function to add HTML to start of page
-function codeHTML() {
+
 
 var h1EL = document.createElement("h1");
 var pEl = document.createElement("p");
@@ -17,17 +20,68 @@ document.body.appendChild(startQuiz);
 
 h1EL.setAttribute("style", "text-align: center; color: green");
 pEl.setAttribute("style", "text-align: center; color: green");
-startQuiz.setAttribute("style", "background: blue; display: block; margin: 0 auto");
-
-}
-
-codeHTML();
+startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 auto");
 
 //function to click start button and initiate quiz
-function startQuiz() {
-    console.log("the button submits stuff");
+function initiateQ1() {
+    //reset h1 and p
+    h1EL.textContent = myQuiz[0].question;
+    pEl.textContent = " ";
     
+    startQuiz = document.querySelector("button");
+    startQuiz.parentNode.removeChild(startQuiz);
+    
+    var Q1A1 = document.createElement("button");
+    Q1A1.id = "Q1A1";
+    Q1A1.textContent = myQuiz[0].answers.a;
+    document.body.appendChild(Q1A1);
+    Q1A1.setAttribute("style", "background: cyan; display: block; margin: 0 auto");
+    
+    var Q1A2 = document.createElement("button");
+    Q1A2.id = "Q1A2";
+    Q1A2.textContent = myQuiz[0].answers.b;
+    document.body.appendChild(Q1A2);
+    Q1A2.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+    
+    var Q1A3 = document.createElement("button");
+    Q1A3.id = "Q1A3";
+    Q1A3.textContent = myQuiz[0].answers.c;
+    document.body.appendChild(Q1A3);
+    Q1A3.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+
+    var Q1A4 = document.createElement("button");
+    Q1A4.id = "Q1A4";
+    Q1A4.textContent = myQuiz[0].answers.d;
+    document.body.appendChild(Q1A4);
+    Q1A4.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+
+    var q1a1Btn = document.querySelector("#Q1A1");
+    q1a1Btn.addEventListener("click", initiateQ2);
+    var q1a2Btn = document.querySelector("#Q1A2");
+    q1a2Btn.addEventListener("click", initiateQ2);
+    var q1a3Btn = document.querySelector("#Q1A3");
+    q1a3Btn.addEventListener("click", initiateQ2);
+    var q1a1Btn = document.querySelector("#Q1A4");
+    q1a4Btn.addEventListener("click", initiateQ2);
+
     }
+
+    function initiateQ2() {
+        if ()
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 
 //function for final results
 function finalResult() {}
@@ -35,7 +89,7 @@ function finalResult() {}
 // Object for Quiz Questions and Answers
 var myQuiz = [
 {
-    question: "which of these is not a JavaScript Data Type",
+    question: "Which of these is not a JavaScript Data Type?",
     answers: {
         a: "String",
         b: "Boolean",
@@ -79,7 +133,7 @@ var myQuiz = [
 
 //Query Selector and addEventLister for start quiz button;
 var selectBtn = document.querySelector("#start-button");
-selectBtn.addEventListener("click", startQuiz);
+selectBtn.addEventListener("click", initiateQ1);
 
 
 

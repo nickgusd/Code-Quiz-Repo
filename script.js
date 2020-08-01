@@ -61,25 +61,168 @@ function initiateQ1() {
     q1a2Btn.addEventListener("click", initiateQ2);
     var q1a3Btn = document.querySelector("#Q1A3");
     q1a3Btn.addEventListener("click", initiateQ2);
-    var q1a1Btn = document.querySelector("#Q1A4");
+    var q1a4Btn = document.querySelector("#Q1A4");
     q1a4Btn.addEventListener("click", initiateQ2);
-
-    }
+    console.log(Q1A4);
+    
 
     function initiateQ2() {
-        if ()
+        //set new question
+        h1EL.textContent = myQuiz[1].question;
+
+        //remove previous buttons
+        Q1A1 = document.querySelector("button");
+        Q1A1.parentNode.removeChild(Q1A1);
+        Q1A2 = document.querySelector("button");
+        Q1A2.parentNode.removeChild(Q1A2);
+        Q1A3 = document.querySelector("button");
+        Q1A3.parentNode.removeChild(Q1A3);
+        Q1A4 = document.querySelector("button");
+        Q1A4.parentNode.removeChild(Q1A4);
+
+        //set new buttons
+
+        var Q2A1 = document.createElement("button");
+        Q2A1.id = "Q2A1";
+        Q2A1.textContent = myQuiz[1].answers.a;
+        document.body.appendChild(Q2A1);
+        Q2A1.setAttribute("style", "background: cyan; display: block; margin: 0 auto");
+    
+        var Q2A2 = document.createElement("button");
+        Q2A2.id = "Q2A2";
+        Q2A2.textContent = myQuiz[1].answers.b;
+        document.body.appendChild(Q2A2);
+        Q2A2.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+    
+        var Q2A3 = document.createElement("button");
+        Q2A3.id = "Q2A3";
+        Q2A3.textContent = myQuiz[1].answers.c;
+        document.body.appendChild(Q2A3);
+        Q2A3.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+
+        var Q2A4 = document.createElement("button");
+        Q2A4.id = "Q2A4";
+        Q2A4.textContent = myQuiz[1].answers.d;
+        document.body.appendChild(Q2A4);
+        Q2A4.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+
+        var q2a1Btn = document.querySelector("#Q2A1");
+        q2a1Btn.addEventListener("click", initiateQ3);
+        var q2a2Btn = document.querySelector("#Q2A2");
+        q2a2Btn.addEventListener("click", initiateQ3);
+        var q2a3Btn = document.querySelector("#Q2A3");
+        q2a3Btn.addEventListener("click", initiateQ3);
+        var q2a4Btn = document.querySelector("#Q2A4");
+        q2a4Btn.addEventListener("click", initiateQ3);
+
+        function initiateQ3() {
+
+            //set new question
+        h1EL.textContent = myQuiz[2].question;
+
+        //remove previous buttons
+        Q2A1 = document.querySelector("button");
+        Q2A1.parentNode.removeChild(Q2A1);
+        Q2A2 = document.querySelector("button");
+        Q2A2.parentNode.removeChild(Q2A2);
+        Q2A3 = document.querySelector("button");
+        Q2A3.parentNode.removeChild(Q2A3);
+        Q2A4 = document.querySelector("button");
+        Q2A4.parentNode.removeChild(Q2A4);
+
+        //set new buttons
+
+        var Q3A1 = document.createElement("button");
+        Q3A1.id = "Q3A1";
+        Q3A1.textContent = myQuiz[2].answers.a;
+        document.body.appendChild(Q3A1);
+        Q3A1.setAttribute("style", "background: cyan; display: block; margin: 0 auto");
+    
+        var Q3A2 = document.createElement("button");
+        Q3A2.id = "Q3A2";
+        Q3A2.textContent = myQuiz[2].answers.b;
+        document.body.appendChild(Q3A2);
+        Q3A2.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+    
+        var Q3A3 = document.createElement("button");
+        Q3A3.id = "Q3A3";
+        Q3A3.textContent = myQuiz[2].answers.c;
+        document.body.appendChild(Q3A3);
+        Q3A3.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+
+        var Q3A4 = document.createElement("button");
+        Q3A4.id = "Q3A4";
+        Q3A4.textContent = myQuiz[2].answers.d;
+        document.body.appendChild(Q3A4);
+        Q3A4.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+
+        //add event listeners
+        var q3a1Btn = document.querySelector("#Q3A1");
+        q3a1Btn.addEventListener("click", initiateQ4);
+        var q3a2Btn = document.querySelector("#Q3A2");
+        q3a2Btn.addEventListener("click", initiateQ4);
+        var q3a3Btn = document.querySelector("#Q3A3");
+        q3a3Btn.addEventListener("click", initiateQ4);
+        var q3a4Btn = document.querySelector("#Q3A4");
+        q3a4Btn.addEventListener("click", initiateQ4);
+
+        function initiateQ4() {
+
+            h1EL.textContent = myQuiz[3].question;
+
+        //remove previous buttons
+            Q3A1 = document.querySelector("button");
+            Q3A1.parentNode.removeChild(Q3A1);
+            Q3A2 = document.querySelector("button");
+            Q3A2.parentNode.removeChild(Q3A2);
+            Q3A3 = document.querySelector("button");
+            Q3A3.parentNode.removeChild(Q3A3);
+            Q3A4 = document.querySelector("button");
+            Q3A4.parentNode.removeChild(Q3A4);
+
+            //set new buttons for Q4 questions
+            var Q4A1 = document.createElement("button");
+            Q4A1.id = "Q4A1";
+            Q4A1.textContent = myQuiz[3].answers.a;
+            document.body.appendChild(Q4A1);
+            Q4A1.setAttribute("style", "background: cyan; display: block; margin: 0 auto");
+    
+            var Q4A2 = document.createElement("button");
+            Q4A2.id = "Q4A2";
+            Q4A2.textContent = myQuiz[3].answers.b;
+            document.body.appendChild(Q4A2);
+            Q4A2.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+    
+            var Q4A3 = document.createElement("button");
+            Q4A3.id = "Q3A3";
+            Q4A3.textContent = myQuiz[3].answers.c;
+            document.body.appendChild(Q4A3);
+            Q4A3.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
+
+            var Q4A4 = document.createElement("button");
+            Q4A4.id = "Q3A4";
+            Q4A4.textContent = myQuiz[3].answers.d;
+            document.body.appendChild(Q4A4);
+            Q4A4.setAttribute("style", "background: cyan; display: block; margin: 0 auto; margin-top: 10px");
 
 
+            var q4a1Btn = document.querySelector("#Q4A1");
+            q4a1Btn.addEventListener("click", initiateFS);
+            var q4a2Btn = document.querySelector("#Q4A2");
+            q4a2Btn.addEventListener("click", initiateFS);
+            var q4a3Btn = document.querySelector("#Q4A3");
+            q4a3Btn.addEventListener("click", initiateFS);
+            var q4a4Btn = document.querySelector("#Q4A4");
+            q4a4Btn.addEventListener("click", initiateFS);
 
 
+        }   
 
-    }
+        }
 
+ }
 
-
-
-
-
+}
 
 
 

@@ -303,8 +303,8 @@ startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 aut
 
     function FinalScore() {
 
-        h1EL.textContent = "Final Score";
-        pEl.textContent = " ";
+        h1EL.textContent = "Quiz Complete!";
+        pEl.textContent = "Your final score is " + score;
 
         //remove previous buttons
 
@@ -352,20 +352,31 @@ startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 aut
             } 
             
 
-            localStorage.setItem("Initials", initials);
+            localStorage.setItem("initials", initials);
 
             renderInitials()
         });
 
 
         function renderInitials() {
+            h1EL.textContent = "High Scores";
+            pEl.textContent = " ";
+
+            inputScore = document.querySelector("#initials");
+            inputScore.parentNode.removeChild(inputScore);
+            initialsLabel = document.querySelector("#scorelabel");
+            initialsLabel.parentNode.removeChild(initialsLabel);
+            submitBtn.textContent = "Go Back";
+            submitBtn.id = "goBack";
 
 
-
-
-
-
+            var highScores = document.createElement("ul");
+            highScores.setAttribute("style", "text-align: center; background: lightgray; font-size: 20px;");
+            document.body.appendChild(highScores);
             
+            var initials = localStorage.getItem("initials")
+
+            highScores.textContent = initials + " " + score + " points";
         }
 
 

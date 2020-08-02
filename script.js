@@ -46,42 +46,45 @@ var myQuiz = [
     ];
 
     //function to add HTML to start of page
-
-
-var h1EL = document.createElement("h1");
-var pEl = document.createElement("p");
-var startQuiz = document.createElement("button");
-
-h1EL.textContent = "Coding Quiz Challenge";
-pEl.textContent =  "Please answer the following code related questions within the time limit. You will be deducted points for each incorrect answer and your time will be reduced by ten seconds!";
-startQuiz.textContent = "Start Quiz";
-startQuiz.id = "start-button";
-
-document.body.appendChild(h1EL);
-document.body.appendChild(pEl);
-document.body.appendChild(startQuiz);
-
-h1EL.setAttribute("style", "text-align: center; color: green");
-pEl.setAttribute("style", "text-align: center; color: green");
-startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 auto");
+    
+   
 
 
 
+    var h1EL = document.createElement("h1");
+    var pEl = document.createElement("p");
+    var startQuiz = document.createElement("button");
+
+    h1EL.textContent = "Coding Quiz Challenge";
+    pEl.textContent =  "Please answer the following code related questions within the time limit. You will be deducted points for each incorrect answer and your time will be reduced by ten seconds!";
+    startQuiz.textContent = "Start Quiz";
+    startQuiz.id = "start-button";
+
+    document.body.appendChild(h1EL);
+    document.body.appendChild(pEl);
+    document.body.appendChild(startQuiz);
+
+    h1EL.setAttribute("style", "text-align: center; color: green");
+    pEl.setAttribute("style", "text-align: center; color: green");
+    startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 auto");
 
     var answers1 = Object.values(myQuiz[0].answers);
     var answers2 = Object.values(myQuiz[1].answers);
     var answers3 = Object.values(myQuiz[2].answers);
     var answers4 = Object.values(myQuiz[3].answers);
 
-
     console.log(answers1);
     console.log(answers2);
     console.log(answers3);
     console.log(answers4);
 
+    var selectBtn = document.querySelector("button");
+    selectBtn.addEventListener("click", initiateQ1);
+
+    
 
     function initiateQ1() {
-
+    
     //reset h1 and p
     h1EL.textContent = myQuiz[0].question;
     pEl.textContent = " ";
@@ -323,6 +326,7 @@ startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 aut
         inputScore.id = "initials";
         inputScore.type = "text";
         inputScore.name = "initials";
+
         document.body.appendChild(inputScore);
         inputScore.setAttribute("style", "display: block; margin: 0 auto;");
 
@@ -345,7 +349,7 @@ startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 aut
         selectSubmit.addEventListener("click", function() {
             
           var initials = document.querySelector("#initials").value;
-            console.log(initials);
+            
             
             if (initials === " ") {
                 displayMessage("error", "initials cannot be blank");
@@ -361,14 +365,18 @@ startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 aut
         function renderInitials() {
             h1EL.textContent = "High Scores";
             pEl.textContent = " ";
-
+            h1EL.id = "highScore";
             inputScore = document.querySelector("#initials");
             inputScore.parentNode.removeChild(inputScore);
             initialsLabel = document.querySelector("#scorelabel");
             initialsLabel.parentNode.removeChild(initialsLabel);
             submitBtn.textContent = "Go Back";
             submitBtn.id = "goBack";
-
+            var clearBtn = document.createElement("button");
+            clearBtn.textContent = "Clear Score";
+            clearBtn.id = "clear";
+            document.body.appendChild(clearBtn);
+            clearBtn.setAttribute("style", "display: block; margin: 0 auto; background: blue; color: white;");
 
             var highScores = document.createElement("ul");
             highScores.setAttribute("style", "text-align: center; background: lightgray; font-size: 20px;");
@@ -377,12 +385,22 @@ startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 aut
             var initials = localStorage.getItem("initials")
 
             highScores.textContent = initials + " " + score + " points";
-        }
+
+            clearBtn.addEventListener("click", function() {
+                highScores.remove();
+            });
+
+
+            submitBtn.addEventListener("click", function() {
+                window.location.reload();
+                
+            });
+
+    }} 
 
 
 
-    }
-       
+
 
 
 
@@ -391,6 +409,4 @@ startQuiz.setAttribute("style", "background: cyan; display: block; margin: 0 aut
 
 
     //Query Selector and addEventLister for start quiz button;
-    var selectBtn = document.querySelector("#start-button");
-    selectBtn.addEventListener("click", initiateQ1);
     

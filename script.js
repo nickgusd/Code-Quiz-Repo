@@ -1,5 +1,5 @@
 
-
+//myQuiz Object
 var myQuiz = [
     {
         question: "Which of these is not a JavaScript Data Type?",
@@ -54,24 +54,21 @@ var myQuiz = [
     secondsLeft--;
         timeEl.textContent = secondsLeft + " seconds left";
         if (secondsLeft === 0) {
+            alert("Time is up!");
             clearInterval(timerInterval);
+            FinalScore();
         }
     
      }, 1000);
     }
 
-    setTime();
-
-
-    //function to add HTML to start of page
-    
 
     var h1EL = document.createElement("h1");
     var pEl = document.createElement("p");
     var startQuiz = document.createElement("button");
 
     h1EL.textContent = "Coding Quiz Challenge";
-    pEl.textContent =  "Please answer the following code related questions within the time limit. You will be deducted points for each incorrect answer and your time will be reduced by ten seconds!";
+    pEl.textContent =  "Please answer the following code related questions within the time limit. You will be deducted points for each incorrect answer and your time will be reduced by a second!";
     startQuiz.textContent = "Start Quiz";
     startQuiz.id = "start-button";
 
@@ -99,8 +96,8 @@ var myQuiz = [
     
 
     function initiateQ1() {
-    
-    //reset h1 and p
+    setTime();
+   
     h1EL.textContent = myQuiz[0].question;
     pEl.textContent = " ";
     
@@ -315,12 +312,12 @@ var myQuiz = [
             if ( userChoice.value == answers3[2] ) {
                 score++;
                 alert("Correct");
-                alert("your score is " + score + " and there are" + secondsLeft + " seconds left");
+                alert("your score is " + score + " and there are " + secondsLeft + " seconds left");
             } else  {
                 score--;
                 secondsLeft - 10;
                 alert("wrong");
-                alert("your score is " + score + " and there are" + secondsLeft + " seconds left");
+                alert("your score is " + score + " and there are " + secondsLeft + " seconds left");
             }
         
            initiateQ4();
@@ -422,7 +419,7 @@ var myQuiz = [
         Q4Btns = document.querySelector(".Q4Btns3");
         Q4Btns.parentNode.removeChild(Q4Btns);
         
-        //create input fields
+        //create form
         var formEl = document.createElement("form");
         formEl.innerHTML = "";
         document.body.appendChild(formEl);
@@ -506,7 +503,7 @@ var myQuiz = [
                 
             });
 
-    }} 
+            }}; 
 
 
 
